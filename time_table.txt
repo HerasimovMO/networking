@@ -1,0 +1,18 @@
+3:30 am to 11:30 am -> day one 11th   8h
+00:40 am to 3:38 am -> day two 12th   3h
+14:45 to 19:25 -> day three 13th      5h
+
+
+commands:
+
+total load
+load by protocol
+load by port
+
+perl /home/kali/ragraph_cp bytes -M 10s -r day_three.argus -w day_three_totoal_load.png -width 1000 -height 500 -title "Total load"
+
+perl /home/kali/ragraph_cp proto -M 1m -r day_three.argus -w day_three_proto.png -title "Load by protocol" -width 1000 -height 500
+
+perl /home/kali/ragraph_cp spkts dpkts dport -M 3m -r day_one.argus -w day_one_port.png -title "Load by port type" -width 2000 -height 1000
+
+/usr/local/sbin/argus -mJAZR -r day_three.pcapng -w day_three.argus --get binary
